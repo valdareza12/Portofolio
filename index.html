@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUMMIT.DEV — Navigating Code, Conquering Summits</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS Scroll Animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================
+       CUSTOM CURSOR
+  ============================ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================
+       CANVAS BACKGROUND (Particles)
+  ============================ -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- ============================
+       NAVBAR
+  ============================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">PORTO<span class="logo-dot">.DEV</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+        <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+        <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link cta-link" data-text="Contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO SECTION
+  ============================ -->
+  <section class="hero" id="home">
+    <!-- Mountain SVG silhouette -->
+    <div class="mountain-silhouette">
+      <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#0d1f3c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0B0F19;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Back range -->
+        <path d="M0,320 L120,180 L200,230 L320,100 L420,160 L520,80 L620,140 L720,60 L820,130 L920,50 L1020,120 L1120,70 L1240,150 L1360,100 L1440,140 L1440,320 Z" fill="url(#mountainGrad)" opacity="0.3"/>
+        <!-- Mid range -->
+        <path d="M0,320 L80,240 L160,280 L280,160 L380,200 L480,130 L580,190 L680,100 L780,170 L880,90 L980,160 L1100,80 L1200,160 L1320,110 L1440,180 L1440,320 Z" fill="url(#mountainGrad)" opacity="0.5"/>
+        <!-- Front range -->
+        <path d="M0,320 L60,285 L140,310 L240,250 L340,285 L440,230 L540,270 L640,210 L740,260 L840,200 L940,250 L1060,190 L1160,245 L1280,205 L1380,250 L1440,230 L1440,320 Z" fill="#0B0F19" opacity="1"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <!-- Floating badge -->
+      <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+        <i class="fas fa-terminal"></i>
+        <span>Available for Project &amp; Collaboration</span>
+        <span class="badge-dot"></span>
+      </div>
+
+      <!-- Main heading -->
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+        <span class="title-line">
+          <span class="glitch" data-text="VALDA">VALDA</span>
+        </span>
+        <span class="title-line">
+          <span class="glitch" data-text="FUJIO A">FUJIO</span>
+        </span>
+      </h1>
+
+      <!-- Tagline -->
+      <div class="hero-tagline" data-aos="fade-up" data-aos-delay="350">
+        <span class="tagline-prefix">// </span>
+        <span class="typewriter" id="typewriter"></span>
+        <span class="typewriter-cursor">|</span>
+      </div>
+
+      <!-- Sub tagline -->
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="450">
+        Seorang <strong>Leader</strong> yang membuka jalur terjal &amp; <strong>Sweeper</strong> 
+        yang memastikan tak ada yang tertinggal — di gunung maupun di codebase.
+      </p>
+
+      <!-- Role chips -->
+      <div class="role-chips" data-aos="fade-up" data-aos-delay="500">
+        <span class="chip chip-leader"><i class="fas fa-mountain"></i> Leader</span>
+        <span class="chip chip-sweeper"><i class="fas fa-shield-halved"></i> Sweeper</span>
+        <span class="chip chip-dev"><i class="fas fa-code"></i> Developer</span>
+        <span class="chip chip-creative"><i class="fas fa-camera"></i> Creative</span>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+       <a href="CV_Valda.pdf" download="CV_Valda.pdf" class="btn btn-primary" id="ctaBtn">
+         <span class="btn-text">Unduh CV</span>
+         <i class="fas fa-download"></i> <div class="btn-glow"></div>
+       </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i>
+          <span>Hubungi Saya</span>
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="700">
+        <div class="stat">
+          <span class="stat-number" data-count="29">0</span>
+          <span class="stat-label">Puncak Ditaklukkan</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="15">0</span>
+          <span class="stat-label">Project Selesai</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="200">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Dokumentasi Alam</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ============================
+       ABOUT SECTION
+  ============================ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">// TENTANG_SAYA</span>
+        <h2 class="section-title">Filosofi <span class="highlight">Pendakian</span><br/>dalam Dunia Digital</h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Left: Personal card -->
+        <div class="about-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="about-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-inner">
+              <i class="fas fa-person-hiking"></i>
+            </div>
+            <div class="avatar-status">
+              <span class="status-dot"></span>
+              <span>Online &amp; Ready</span>
+            </div>
+          </div>
+          <div class="about-info">
+            <div class="info-row">
+              <i class="fas fa-map-pin"></i>
+              <span>Mataram,Nusa Tenggara Barat</span>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-mountain-sun"></i>
+              <span>Pendaki Aktif | 3+ Tahun</span>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-laptop-code"></i>
+              <span>Vibe Coder &amp; Creative</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Philosophy -->
+        <div class="about-content" data-aos="fade-left" data-aos-delay="200">
+          <p class="about-desc">
+            Seperti jalur pendakian yang menuntut perencanaan matang, keberanian, dan solidaritas tim — 
+            begitu pula cara saya mendekati setiap <span class="text-neon">project digital</span>. 
+            Setiap baris kode adalah langkah, setiap bug adalah rintangan, dan setiap deploy 
+            yang berhasil adalah puncak yang ditaklukkan.
+          </p>
+
+          <!-- Role cards -->
+          <div class="role-cards">
+            <div class="role-card role-card-leader" data-aos="zoom-in" data-aos-delay="300">
+              <div class="role-icon">
+                <i class="fas fa-flag"></i>
+              </div>
+              <div class="role-body">
+                <h3>Leader <span class="role-tag">// Point Man</span></h3>
+                <p>Membuka jalur yang belum pernah dilalui. Manajemen risiko, keputusan cepat di situasi kritis, dan menginspirasi tim untuk terus bergerak maju meski medan terjal.</p>
+                <ul class="role-traits">
+                  <li><i class="fas fa-check"></i> Navigasi &amp; Pemetaan Jalur</li>
+                  <li><i class="fas fa-check"></i> Crisis Management</li>
+                  <li><i class="fas fa-check"></i> Team Motivation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="role-card role-card-sweeper" data-aos="zoom-in" data-aos-delay="400">
+              <div class="role-icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div class="role-body">
+                <h3>Sweeper <span class="role-tag">// Rearguard</span></h3>
+                <p>Tidak ada anggota yang tertinggal. Tidak ada bug yang lolos. Ketelitian tinggi, quality assurance, dan memastikan standar tertinggi di setiap deliverable.</p>
+                <ul class="role-traits">
+                  <li><i class="fas fa-check"></i> Quality Assurance</li>
+                  <li><i class="fas fa-check"></i> Zero Bug Tolerance</li>
+                  <li><i class="fas fa-check"></i> Team Safety Net</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SKILLS SECTION
+  ============================ -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">// KEAHLIAN</span>
+        <h2 class="section-title">Stack &amp; <span class="highlight">Skills</span></h2>
+        <p class="section-sub">Dari lensa kamera hingga terminal — inilah senjata di ransel digitalku.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Creative Skills -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="100" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-creative">
+              <i class="fas fa-camera-retro"></i>
+            </div>
+            <div>
+              <h3>Fotografi</h3>
+              <span class="skill-category">Creative</span>
+            </div>
+          </div>
+          <p class="skill-desc">Dokumentasi event, nature photography, dan portrait. Mata yang terlatih di lapangan gunung.</p>
+          <div class="skill-tags">
+            <span>Event Coverage</span>
+            <span>Nature</span>
+            <span>Portrait</span>
+            <span>Aerial</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="150" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-creative">
+              <i class="fas fa-video"></i>
+            </div>
+            <div>
+              <h3>Videografi</h3>
+              <span class="skill-category">Creative</span>
+            </div>
+          </div>
+          <p class="skill-desc">Produksi video event, dokumentasi alam, dan storytelling visual yang memukau.</p>
+          <div class="skill-tags">
+            <span>Cinematic</span>
+            <span>Vlog</span>
+            <span>Event Doc</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 78%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="200" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-edit">
+              <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h3>Photo Editing</h3>
+              <span class="skill-category">Editing</span>
+            </div>
+          </div>
+          <p class="skill-desc">Color grading, retouching, dan produksi visual dengan Adobe Lightroom &amp;.</p>
+          <div class="skill-tags">
+            <span>Lightroom</span>
+            <span>Color Grading</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 82%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="250" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-edit">
+              <i class="fas fa-film"></i>
+            </div>
+            <div>
+              <h3>Video Editing</h3>
+              <span class="skill-category">Editing</span>
+            </div>
+          </div>
+          <p class="skill-desc">Post-production video dengan Adobe Premiere Pro dan CapCut untuk berbagai format konten.</p>
+          <div class="skill-tags">
+            <span>CapCut</span>
+            <span>After Effects</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Design Skills -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-design">
+              <i class="fab fa-figma"></i>
+            </div>
+            <div>
+              <h3>Figma</h3>
+              <span class="skill-category">Design</span>
+            </div>
+          </div>
+          <p class="skill-desc">UI/UX Design, prototyping interaktif, dan system design untuk produk digital.</p>
+          <div class="skill-tags">
+            <span>UI/UX</span>
+            <span>Prototype</span>
+            <span>Design System</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 75%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="350" data-tilt>
+          <div class="skill-card-glow"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-design">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div>
+              <h3>Canva</h3>
+              <span class="skill-category">Design</span>
+            </div>
+          </div>
+          <p class="skill-desc">Visual branding, social media assets, dan desain konten marketing yang engaging.</p>
+          <div class="skill-tags">
+            <span>Branding</span>
+            <span>Social Media</span>
+            <span>Print</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="--progress: 90%"></div>
+          </div>
+        </div>
+
+        <!-- Tech: Full width code card -->
+        <div class="skill-card skill-card-tech" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-card-glow glow-tech"></div>
+          <div class="skill-header">
+            <div class="skill-icon-wrap skill-tech">
+              <i class="fas fa-terminal"></i>
+            </div>
+            <div>
+              <h3>Vibe Coding</h3>
+              <span class="skill-category">Tech</span>
+            </div>
+          </div>
+          <!-- Code editor mock -->
+          <div class="code-editor">
+            <div class="editor-topbar">
+              <div class="editor-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="editor-filename">portfolio.js</span>
+            </div>
+            <div class="editor-body">
+              <pre><code><span class="c-kw">const</span> <span class="c-var">dev</span> <span class="c-op">=</span> {
+  <span class="c-key">name</span>: <span class="c-str">"Valda Fujio Areza"</span>,
+  <span class="c-key">stack</span>: [<span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>, <span class="c-str">"JavaScript"</span>],
+  <span class="c-key">tools</span>: [<span class="c-str">"VS Code"</span>, <span class="c-str">"Figma"</span>],
+  <span class="c-key">philosophy</span>: <span class="c-str">"Code like you summit"</span>,
+  <span class="c-key">debug</span>: <span class="c-fn">async</span>() <span class="c-op">=&gt;</span> {
+    <span class="c-kw">while</span>(<span class="c-bool">true</span>) <span class="c-kw">await</span> <span class="c-fn">keepClimbing</span>();
+  }
+};</code></pre>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="tech-tag"><i class="fab fa-github"></i> GitHub</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       EXPERIENCE SECTION (Trail Timeline)
+  ============================ -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">// PENGALAMAN</span>
+        <h2 class="section-title">Jalur yang <span class="highlight">Telah Dilalui</span></h2>
+        <p class="section-sub">Setiap pos adalah milestone. Setiap puncak adalah pencapaian.</p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <!-- Vertical trail line -->
+        <div class="trail-line">
+          <div class="trail-progress" id="trailProgress"></div>
+        </div>
+
+        <!-- Timeline items -->
+        <div class="timeline">
+
+          <!-- Item 1: Summit -->
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Pendakian Gunung Rinjani <span class="elevation">3.726 mdpl</span></h3>
+              <p>Jalur Kandang Sapi. Puncak Anjani berhasil disentuh bersama tim 8 orang. Berperan sebagai <strong>Sweaper</strong> dan <strong>Dokum</strong> secara bergantian. Dokumentasi full photo &amp; video sepanjang jalur.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-users"></i> 8 Anggota</span>
+                <span><i class="fas fa-camera"></i> Dokumentasi</span>
+                <span><i class="fas fa-flag"></i> Summit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Creative -->
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="150">
+            <div class="timeline-node node-creative">
+              <i class="fas fa-camera"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2021 — 2024</span>
+                <span class="timeline-badge badge-creative">Kreatif</span>
+              </div>
+              <h3>Fotografer &amp; Videografer Event</h3>
+              <p>Dokumentasi 5+ event Sekolah dan organisasi. Produksi konten untuk media sosial dengan total engagement rate 20%+. Editing dan color grading full post-production.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-images"></i> 15+ Events</span>
+                <span><i class="fas fa-star"></i> 20% Engagement</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Mountain -->
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-person-hiking"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Agung <span class="elevation">3.142 mdpl</span></h3>
+              <p>Jalur Besakih. Pendakian perdana di luar pulau kelahiran. Belajar manajemen tim lapangan, logistik pendakian, dan dokumentasi alam.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-star"></i> First Leadership</span>
+                <span><i class="fas fa-camera"></i> Nature Docs</span>
+              </div>
+            </div>
+          </div>
+
+<!-- Item 4: Design -->
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="250">
+            <div class="timeline-node node-design">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2021 - 2024</span>
+                <span class="timeline-badge badge-design">Design</span>
+              </div>
+              <h3>Graphic Design Project — Atribut & Publikasi Event Sekolah</h3>
+              <p>Merancang berbagai kebutuhan visual untuk rangkaian acara sekolah, mulai dari poster publikasi, banner, feed media sosial, ID card, hingga sertifikat menggunakan Canva untuk membangun identitas visual event yang menarik dan konsisten.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-magic"></i> Canva</span>
+                <span><i class="fas fa-calendar-alt"></i> School Event</span>
+                <span><i class="fas fa-bullhorn"></i> Branding & Publication</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Mountain -->
+           <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-mountain-sun"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Raung <span class="elevation">3.344 mdpl</span></h3>
+              <p>Jalur Kalibaru. Ekspedisi pendakian dengan teknikal yag sulit. Memimpin navigasi di jalur bebatuan dan memastikan keselamatan seluruh anggota tim.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-moon"></i> Raung Attack</span>
+                <span><i class="fas fa-sun"></i> Sunrise Summit</span>
+                <span><i class="fas fa-snowflake"></i> Jalur Bebatuan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Tech -->
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="350">
+            <div class="timeline-node node-tech">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024 — Sekarang</span>
+                <span class="timeline-badge badge-tech">Tech</span>
+              </div>
+              <h3>Web Development &amp; Vibe Coding</h3>
+              <p>Perjalanan belajar coding dimulai dari HTML dasar hingga JavaScript interaktif.</p>
+              <div class="timeline-tags">
+                <span><i class="fab fa-html5"></i> HTML/CSS/JS</span>
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fab fa-github"></i> GitHub</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2025</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Ciremai <span class="elevation">3.078 mdpl</span></h3>
+              <p>Jalur Sadarehe. Menaklukkan atap Jawa Barat melalui trek menanjak konstan tanpa bonus. Mengasah ketahanan fisik (endurance) dan manajemen hidrasi tim di jalur minim sumber air.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-temperature-high"></i> Atap Jabar</span>
+                <span><i class="fas fa-water"></i> Water Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="150">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-tree"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2026</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Pangrango <span class="elevation">3.019 mdpl</span></h3>
+              <p>Jalur Cibodas. Eksplorasi hutan hujan tropis yang lebat menuju puncak tertinggi kedua di Jabar. Melihat Lembah Mandalawangi untuk studi literasi alam dan vegetasi Edelweiss.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-leaf"></i> Mandalawangi</span>
+                <span><i class="fas fa-cloud-rain"></i> Rainforest Trek</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-volcano"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2025</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Gede <span class="elevation">2.958 mdpl</span></h3>
+              <p>Jalur Putri. Pendakian Subuh melewati Alun-Alun Suryakencana. Fokus pada jalur agar tidak ramai dan adaptasi suhu ekstrem pegunungan saat hujan.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-wind"></i> Suryakencana</span>
+                <span><i class="fas fa-stopwatch"></i> Camping </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="250">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2025</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Cikuray <span class="elevation">2.821 mdpl</span></h3>
+              <p>Jalur Tapak Gerot. Melewati trek "akar" legendaris dengan kemiringan ekstrem. Berhasil mencapai puncak tertinggi di Garut selepas dari Gunung Papandayan.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-cloud"></i> Sea of Clouds</span>
+                <span><i class="fas fa-angle-double-up"></i> Extreme Slope</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-smog"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2025</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Papandayan <span class="elevation">2.665 mdpl</span></h3>
+              <p>Jalur Utama Garut. Melintasi kawasan kawah aktif, Hutan Mati dan Menikmati Sunrise. Berperan aktif dalam kampanye *Clean Up* (operasi bersih) sampah plastik di sepanjang jalur pendakian.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-trash-restore"></i> Eco Mountain</span>
+                <span><i class="fas fa-skull"></i> Hutan Mati</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 12: Mountain (Seven Summits Jabar - Malabar) -->
+          <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="100">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-compass"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Patuha <span class="elevation">2.434 mdpl</span></h3>
+              <p>Jalur Gunung sepuh. Melakukan trek sunyi melintasi perkebunan teh menuju puncak sejati. Mendokumentasikan lanskap eksotis Kawah Putih dari sudut pandang ketinggian (rim trek).</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-gem"></i> Kawah Putih</span>
+                <span><i class="fas fa-images"></i> Landscape Docs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 13: Mountain (Seven Summits Jabar - Patuha) -->
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="150">
+            <div class="timeline-node node-summit">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-badge badge-mountain">Pendakian</span>
+              </div>
+              <h3>Gunung Malabar <span class="elevation">2.343 mdpl</span></h3>
+              <p>Menjelajahi kawasan Macan kumbang Malabar hingga mencapai Puncak Besar. Navigasi darat di jalur yang rapat, vegetasi rimbun, dan medan punggungan yang curam.</p>
+              <div class="timeline-tags">
+                <span><i class="fas fa-gem"></i>Puncak Besar</span>
+                <span><i class="fas fa-images"></i>Navigation</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /timeline -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT SECTION
+  ============================ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">// 04_KONTAK</span>
+        <h2 class="section-title">Mari <span class="highlight">Terhubung</span></h2>
+        <p class="section-sub">Siap memulai ekspedisi baru? Kirimkan sinyal dari basecamp-mu.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact form -->
+        <div class="contact-form-wrap" data-aos="fade-right" data-aos-delay="100">
+          <div class="form-header">
+            <i class="fas fa-terminal"></i>
+            <span>send_message.sh</span>
+          </div>
+          <div class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">
+                <span class="label-prefix">$</span> nama_kamu
+              </label>
+              <input type="text" id="name" placeholder="Masukkan namamu..." autocomplete="off" />
+              <div class="input-line"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">
+                <span class="label-prefix">$</span> email_kamu
+              </label>
+              <input type="email" id="email" placeholder="nama@email.com" autocomplete="off" />
+              <div class="input-line"></div>
+            </div>
+            <div class="form-group">
+              <label for="subject">
+                <span class="label-prefix">$</span> subjek
+              </label>
+              <input type="text" id="subject" placeholder="Tentang apa?" autocomplete="off" />
+              <div class="input-line"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">
+                <span class="label-prefix">$</span> pesan
+              </label>
+              <textarea id="message" rows="4" placeholder="Tuliskan pesanmu di sini..."></textarea>
+              <div class="input-line"></div>
+            </div>
+            <button type="button" class="btn btn-primary btn-submit" onclick="handleFormSubmit()">
+              <i class="fas fa-paper-plane"></i>
+              <span>Kirim Pesan</span>
+              <div class="btn-glow"></div>
+            </button>
+          </div>
+          <!-- Success message (hidden by default) -->
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Pesan Terkirim!</h3>
+            <p>Terima kasih sudah menghubungi. Pesan akan saya balas segera.</p>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
+          <h3 class="contact-info-title">Find Me At</h3>
+          <div class="social-links">
+            <a href="https://www.instagram.com/valda_reza?igsh=MWhlY3M0OG55cG11Mw==" target="_blank" class="social-link social-ig">
+              <div class="social-icon"><i class="fab fa-instagram"></i></div>
+              <div class="social-text">
+                <span class="social-name">Instagram</span>
+                <span class="social-handle">@valda_reza</span>
+              </div>
+              <i class="fas fa-arrow-right social-arrow"></i>
+            </a>
+            <a href="https://wa.me/6285967144041" target="_blank" class="social-link social-wa">
+              <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="social-text">
+                <span class="social-name">WhatsApp</span>
+                <span class="social-handle">+62 859-6714-4041</span>
+              </div>
+              <i class="fas fa-arrow-right social-arrow"></i>
+            </a>
+            <a href="mailto:arya@email.com" class="social-link social-email">
+              <div class="social-icon"><i class="fas fa-envelope"></i></div>
+              <div class="social-text">
+                <span class="social-name">Email</span>
+                <span class="social-handle">areza.summer@gmail.com</span>
+              </div>
+              <i class="fas fa-arrow-right social-arrow"></i>
+            </a>
+            <a href="https://github.com/valdareza12" target="_blank" class="social-link social-gh">
+              <div class="social-icon"><i class="fab fa-github"></i></div>
+              <div class="social-text">
+                <span class="social-name">GitHub</span>
+                <span class="social-handle">github.com/valdareza12</span>
+              </div>
+              <i class="fas fa-arrow-right social-arrow"></i>
+            </a>
+          </div>
+
+          <!-- Availability card -->
+          <div class="availability-card">
+            <div class="avail-dot"></div>
+            <div>
+              <h4>Tersedia untuk:</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Freelance Project</li>
+                <li><i class="fas fa-check"></i> Kolaborasi Kreatif</li>
+                <li><i class="fas fa-check"></i> Dokumentasi Event</li>
+                <li><i class="fas fa-check"></i> Hiking Team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer class="footer">
+    <div class="footer-mountain">
+      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,120 L180,40 L280,70 L400,20 L520,60 L640,10 L760,50 L880,15 L1000,55 L1120,25 L1240,65 L1360,30 L1440,50 L1440,120 Z" fill="#0d1627" opacity="0.8"/>
+      </svg>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span>PORTO<span class="logo-dot">.DEV</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-quote">"The summit is what drives us, but the climb itself is what matters."</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/valda_reza?igsh=MWhlY3M0OG55cG11Mw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6285967144041" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:areza.summer@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/valdareza12" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Valda Fujio Areza &nbsp;·&nbsp; 
+        Built with <i class="fas fa-heart" style="color:#ff4d6d"></i> &amp; <i class="fas fa-mountain" style="color:#00e5ff"></i>
+      </p>
+    </div>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
